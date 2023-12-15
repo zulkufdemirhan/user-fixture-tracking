@@ -1,0 +1,39 @@
+.table-wrapper {
+  @apply overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg;
+}
+
+.table-wrapper table {
+  @apply min-w-full divide-y divide-gray-300;
+}
+
+.table-wrapper table thead {
+  @apply bg-gray-50;
+}
+
+.table-wrapper table thead tr th:first-child {
+  @apply py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6;
+}
+
+.table-wrapper table thead tr th {
+  @apply px-3 py-3.5 text-left text-sm font-semibold text-gray-900;
+}
+
+.table-wrapper table thead tr th:last-child {
+  @apply relative py-3.5 pl-3 pr-4 sm:pr-6;
+}
+
+.table-wrapper table tbody {
+  @apply divide-y divide-gray-200 bg-white;
+}
+
+.table-wrapper table tbody tr td:first-child {
+  @apply whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6;
+}
+
+.table-wrapper table tbody tr td {
+  @apply whitespace-nowrap px-3 py-4 text-sm text-gray-500;
+}
+
+.table-wrapper table tbody tr td:last-child {
+  @apply relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6;
+}

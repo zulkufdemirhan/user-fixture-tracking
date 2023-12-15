@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  job: MyString
+  email: MyString
+  phone: 1
+  status: false
+  entry_date: 2023-12-09
+  leave_date: 2023-12-09
+
+two:
+  name: MyString
+  job: MyString
+  email: MyString
+  phone: 1
+  status: false
+  entry_date: 2023-12-09
+  leave_date: 2023-12-09
