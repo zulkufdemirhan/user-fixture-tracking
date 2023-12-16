@@ -1,12 +1,12 @@
 <%= turbo_frame_tag "modal" do %>
-  <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <%= tag.div data: { controller: "modal", action: "keyup@window->modal#handleKeydown" }, class: "fixed z-10 inset-0 overflow-y-auto" do %>
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <div class="fixed inset-0 bg-gray-500 opacity-75 transition-opacity" style="opacity: 0.75;" aria-hidden="true"></div>
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
       <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
         <div class="flex justify-between items-center" style="justify-content: space-between;">
           <h1 class="text-gray-800 font-semibold text-xl"><%= @title %></h1>
-          <%= link_to "#", class: "rounded-md bg-white p-1 text-gray-400 hover:text-gray-600 hover:ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300", data: { controller: "modal", action: "modal#close keydown.esc->modal#close" } do %>
+          <%= link_to "#", class: "rounded-md bg-white p-1 text-gray-400 hover:text-gray-600 hover:ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300", data: { action: "modal#close" } do %>
             <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="height: 22px;">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -15,5 +15,5 @@
         <%= content %>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
