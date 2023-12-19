@@ -6,7 +6,7 @@
       <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
         <div class="flex justify-between items-center" style="justify-content: space-between;">
           <h1 class="text-gray-800 font-semibold text-xl"><%= @title %></h1>
-          <%= link_to "#", class: "rounded-md bg-white p-1 text-gray-400 hover:text-gray-600 hover:ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300", data: { action: "modal#close" } do %>
+          <%= button_tag class: "rounded-md bg-white p-1 text-gray-400 hover:text-gray-600 hover:ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300", data: { action: "modal#close" } do %>
             <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="height: 22px;">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
