@@ -11,8 +11,10 @@
         <th></th>
       </tr>
     </thead>
-    <tbody>
-      <%= render "users/user_list", users: objects %>
+    <tbody id="user_table">
+      <% objects.each do |user| %>
+        <%= render "users/user_list", user: %>
+      <% end %>
     </tbody>
   </table>
 </div>

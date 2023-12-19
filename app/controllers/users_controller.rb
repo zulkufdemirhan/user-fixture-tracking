@@ -16,9 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: 'User was successfully created.'
-    else
-      render :new
+      flash.now[:notice] = 'User was successfully created.'
     end
   end
 
@@ -27,9 +25,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to root_path, notice: 'User was successfully updated.'
-    else
-      render :edit
+      flash.now[:notice] = 'User was successfully updated.'
     end
   end
 
