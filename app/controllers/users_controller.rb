@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all.order(id: :desc)
+    @pagy, @users = pagy(@users, items: 5)
+    rescue Pagy::OverflowError
+      redirect_to root_path(page: 1)
   end
 
   def show
