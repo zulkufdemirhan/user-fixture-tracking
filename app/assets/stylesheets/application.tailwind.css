@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 body {
-  @apply h-screen bg-gray-50;
+  @apply h-screen overflow-x-hidden bg-gray-50;
 }
 
 /* create a form component */

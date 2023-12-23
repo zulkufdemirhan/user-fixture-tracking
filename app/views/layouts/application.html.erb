@@ -15,9 +15,15 @@
     <div id="flash">
       <%= render partial: "shared/flash" %>
     </div>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= turbo_frame_tag "modal" %>
-      <%= yield %>
+    <%= turbo_frame_tag "modal" %>
+    <%= render partial: "layouts/side_bar" %>
+    <%= render partial: "layouts/top_bar" %>
+    <main class="lg:pl-20">
+      <section>
+        <div class="p-6 space-y-10">
+          <%= yield %>
+        </div>
+      </section>
     </main>
   </body>
 </html>

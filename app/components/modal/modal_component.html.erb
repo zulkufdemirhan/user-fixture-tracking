@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "modal" do %>
-  <%= tag.div data: { controller: "modal", action: "keyup@window->modal#handleKeydown" }, class: "fixed z-10 inset-0 overflow-y-auto" do %>
+  <%= tag.div data: { controller: "modal", action: "keyup@window->modal#handleKeydown" }, class: "fixed z-50 inset-0 overflow-y-auto" do %>
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <div class="fixed inset-0 bg-gray-500 opacity-75 transition-opacity" style="opacity: 0.75;" aria-hidden="true"></div>
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
