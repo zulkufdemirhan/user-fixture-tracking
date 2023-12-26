@@ -16,8 +16,10 @@
       <%= render partial: "shared/flash" %>
     </div>
     <%= turbo_frame_tag "modal" %>
-    <%= render partial: "layouts/side_bar" %>
-    <%= render partial: "layouts/top_bar" %>
+    <div  data-controller="aside" >
+      <%= render partial: "layouts/side_bar" %>
+      <%= render partial: "layouts/top_bar" %>
+    </div>
     <main class="lg:pl-20">
       <section>
         <div class="p-6 space-y-10">

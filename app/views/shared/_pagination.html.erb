@@ -1,4 +1,6 @@
-<div class="flex justify-between items-center">
-  <p class="text-sm text-gray-700"><%== pagy_info(pagy, item_name: pagy_label)%></p>
-  <%== pagy_nav(pagy) if @pagy.count > @pagy.items  %>
-</div>
+<%= turbo_frame_tag "pagination" do %>
+  <div class="flex justify-between items-center mt-4">
+    <p class="text-sm text-gray-700"><%== pagy_info(pagy, item_name: pagy_label)%></p>
+    <%== pagy_nav(pagy) if @pagy.count > @pagy.items  %>
+  </div>
+<% end %>

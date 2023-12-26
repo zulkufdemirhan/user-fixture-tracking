@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash.now[:notice] = 'User was successfully created.'
+      update_index
     end
   end
 
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
   def destroy
     if @user.destroy
       flash.now[:alert] = 'User was successfully deleted.'
+      update_index
     end 
   end
 
@@ -52,4 +54,10 @@ class UsersController < ApplicationController
     return unless Rails.env.development?
     redirect_to root_path unless turbo_frame_request?
   end
+
+  def update_index
+    @users = User.all.order(id: :desc)
+    @pagy, @users = pagy(@users, items: 5)
+  end
+
 end

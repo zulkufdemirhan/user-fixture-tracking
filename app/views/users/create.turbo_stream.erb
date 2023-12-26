@@ -1,6 +1,8 @@
 <% if @user.errors.blank? %>
   <%= turbo_stream.replace 'modal', turbo_frame_tag(:modal) %>
   <%= turbo_stream.prepend 'user_table', partial: 'user_list', locals: { user: @user } %>
+  <%= turbo_stream.replace "pagination", partial: "shared/pagination", locals: { pagy: @pagy, pagy_label: "Users" } %>
+  <%= turbo_stream.update "update_users_table", partial: "users/user_table", locals: { objects: @users } %>
   <%= turbo_stream.prepend "flash", partial: "shared/flash" %>
 <% else %>
   <%= turbo_stream.replace dom_id(@user), partial: 'users/forms/user_form', locals: { user: @user } %>
