@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ActionView::RecordIdentifier
   before_action :set_user, except: [:index, :new, :create]
   before_action :ensure_frame_response, only: [:new, :edit]
 
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :job, :email, :phone, :status, :entry_date)
+    params.require(:user).permit(:user_photo, :name, :job, :email, :phone, :status, :entry_date)
   end
   
   def ensure_frame_response

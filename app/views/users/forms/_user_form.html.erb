@@ -1,5 +1,6 @@
 <%= form_with(model: user, data: { controller: "flatpickr" }, html: { class: "grid grid-cols-2 gap-4", id: dom_id(user) }) do |f| %>
   <%= render "shared/form_errors", object: f.object %>
+  <%= render "users/forms/preview", f: f, user: user %>
   <div class="col-span-2">
     <%= f.label :name %>
     <%= f.text_field :name, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6", placeholder: "Lorem Ipsum" %>
@@ -25,6 +26,6 @@
     <%= f.select :status, ["Active", "Waiting", "not Active"], class: "test" %>
   </div>
   <div>
-    <%= f.submit "Create User", class: "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+    <%= f.submit "#{params[:action] == "new" ? "Create User" : "Update User"}", class: "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
   </div>
 <% end %>

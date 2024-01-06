@@ -1,0 +1,9 @@
+<div class="col-span-2 flex items-center mt-4 gap-x-3" data-controller="preview">
+  <% if user.user_photo.attached? %>
+    <%= image_tag user.user_photo, direct_upload: true, data: { preview_target: "preview" }, class: "h-11 w-11 rounded-full" %>
+  <% else %>
+    <%= image_tag("user.jpg", direct_upload: true, data: { preview_target: "preview" }, class: "h-11 w-11 rounded-full text-gray-300") %>
+  <% end %>
+  <button type="button" id="change-user-photo" data-action="click->preview#handleAttachment" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"><%= "#{params[:action] == "new" ? "Add Photo" : "Change Photo"}"%></button>
+  <%= f.file_field :user_photo, data: { preview_target: "input", action: "change->preview#preview" }, id: "user-photo-input", class: "hidden" %>
+</div>
