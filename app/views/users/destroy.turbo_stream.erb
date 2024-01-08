@@ -1,4 +1,5 @@
 <%= turbo_stream.remove "user_#{@user.id}" %>
 <%= turbo_stream.replace "pagination", partial: "shared/pagination", locals: { pagy: @pagy, pagy_label: "Users" } %>
 <%= turbo_stream.update "update_users_table", partial: "users/user_table", locals: { objects: @users } %>
+<%= turbo_stream.update "counted_users_status", partial: "overview" %>
 <%= turbo_stream.prepend "flash", partial: "shared/flash" %>

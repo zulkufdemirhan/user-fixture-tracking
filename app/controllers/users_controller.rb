@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def index
     @users = User.all.order(id: :desc)
     @pagy, @users = pagy(@users, items: 5)
+
+    count_users_by_status
     rescue Pagy::OverflowError
       redirect_to root_path(page: 1)
   end
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       flash.now[:notice] = 'User was successfully created.'
       update_index
+      count_users_by_status
     end
   end
 
@@ -31,6 +34,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash.now[:notice] = 'User was successfully updated.'
+      count_users_by_status
     end
   end
 
@@ -38,6 +42,7 @@ class UsersController < ApplicationController
     if @user.destroy
       flash.now[:alert] = 'User was successfully deleted.'
       update_index
+      count_users_by_status
     end 
   end
 
@@ -61,4 +66,9 @@ class UsersController < ApplicationController
     @pagy, @users = pagy(@users, items: 5)
   end
 
+  def count_users_by_status
+    @on_leave_users  = User.count_by_status("On Leave")
+    @on_site_users   = User.count_by_status("On Site")
+    @remote_users    = User.count_by_status("Remote")
+  end
 end

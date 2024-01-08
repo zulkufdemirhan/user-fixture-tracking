@@ -12,7 +12,9 @@
   <td><%= user.job %></td>
   <td><%= user.email %></td>
   <td><%= user.phone %></td>
-  <td><%= user.status %></td>
+  <td>
+    <span class="inline-flex items-center rounded-md bg-<%= user_status(user.status) %>-50 px-2 py-1 text-xs font-medium text-<%= user_status(user.status) %>-700 ring-1 ring-inset ring-<%= user_status(user.status) %>-700"><%= user.status %></span>
+  </td>
   <td><%= user.entry_date %></td>
   <td>
     <div class="relative inline-block text-left" data-controller="dropdown">

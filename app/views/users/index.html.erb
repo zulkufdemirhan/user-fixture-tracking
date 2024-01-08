@@ -1,4 +1,6 @@
-<%= render partial: "users/overview" %>
+<%= turbo_frame_tag "counted_users_status" do %>
+  <%= render partial: "users/overview" %>
+<% end %>
 <div class="space-y-4">
   <%= render "users/user_header" %>
   <div class="flow-root">
@@ -10,5 +12,5 @@
       </div>
     </div>
   </div>
-  <%== render partial: 'shared/pagination', locals: {pagy: @pagy, pagy_label: "Users"} %>
+  <%== render partial: 'shared/pagination', locals: { pagy: @pagy, pagy_label: "Users" } %>
 </div>
